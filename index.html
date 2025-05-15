@@ -7,7 +7,7 @@
   <style>
     body {
       font-family: Arial, sans-serif;
-      max-width: 800px;
+      max-width: 900px;
       margin: 40px auto;
       padding: 0 20px;
       background-color: #f9f9f9;
@@ -20,15 +20,14 @@
 </head>
 <body>
   <h2>Graphique des besoins en fonction de l'âge</h2>
-  <canvas id="myChart" width="600" height="300"></canvas>
+  <canvas id="myChart" width="800" height="400"></canvas>
 
   <script>
-    // Fonction pour extraire les données de l'URL
     function getDataFromURL() {
       const params = new URLSearchParams(window.location.search);
       let ages = [], besoins = [];
 
-      for (let i = 1; i <= 10; i++) {
+      for (let i = 1; i <= 100; i++) {
         let age = parseFloat(params.get("age" + i));
         let bes = parseFloat(params.get("bes" + i));
 
@@ -42,7 +41,6 @@
     }
 
     const { ages, besoins } = getDataFromURL();
-
     const ctx = document.getElementById('myChart').getContext('2d');
 
     new Chart(ctx, {
